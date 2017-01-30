@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            var form = $('#signupform');
+            $(form).submit(function (e) {
+                e.preventDefault();
+                var formData = $(form).serialize();
+                alert(formData);
+                if ($.trim($("#email").val()) == "") {
+                    $('#fail-alert').fadeIn();
+                    $('#content.ctas-input').val('');
+                } else {
+                // Submit the form using AJAX.
+                    $.ajax({
+                        type: 'POST',
+                        url: $(form).attr('action'),
+                        data: formData
+                    }).done(function (response) {
+                        $('#success-alert').fadeIn();
+                        // Clear the form.
+                        $('#content.ctas-input').val('');
+                    }).fail(function (data) {
+                        $('#fail-alert').fadeIn();
+                        $('#content.ctas-input').val('');
+                    });
+                }
+            });
+
+            var form2 = $('#signupform2');
+
+            $(form2).submit(function (e) {
+                e.preventDefault();
+                var form2Data = $(form2).serialize();
+                if($.trim($("#email2").val()) == "") {
+                    $('#fail-alert2').fadeIn();
+                    // Set the message text.
+                    $('#content.ctas-input').val('');
+                }else {
+                    // Submit the form using AJAX.
+                    $.ajax({
+                        type: 'POST',
+                        url: $(form2).attr('action'),
+                        data: form2Data
+                    }).done(function (response) {
+                        $('#success-alert2').fadeIn();
+                        // Clear the form.
+                        $('#content.ctas-input').val('');
+                    }).fail(function (data) {
+                        $('#fail-alert2').fadeIn();
+                        $('#content.ctas-input').val('');
+                    });
+                }
+            })
+        });
+    </script>
+    <title>
+      WhatzCo - Connecting Businesses across the Globe.
+    </title>
+    <meta charSet="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/devices.css">
+
+  </head>
+  <body>
+  <div id="content"></div>
+
+
+  <header class="header">
+
+    <div class="container-lrg">
+      <div class="col-12 spread">
+        <div>
+          <div class="logo2">
+              WhatzCo
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="container-lrg flex">
+        <div class="col-6 centervertical">
+          <h1 class="heading">
+            Best suppliers and buyers for <b>your</b> business.
+          </h1>
+          <h2 class="paragraph">
+          Connect to businesses across the globe
+          <br/> 
+          Over WhatsApp, Email, Text, Facebook or a Postcard.
+          </h2>
+
+          <div class="ctas">
+            <div class="alert alert-success alert-dismissable fade in" style="display: none" id="success-alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Thanks!</strong> You have been added to WhatsBiz!
+            </div>
+
+            <div class="alert alert-danger alert-dismissable fade in" style="display: none" id="fail-alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Error!</strong> Please enter a valid email, or phone number or facebook id.
+            </div>
+
+
+            <form id="signupform" method="post" action="https://api.formbucket.com/f/buk_sA0FNKFklKsP17eR0Cf4BrdK">
+              <input class="ctas-input" id="email" type="text" placeholder="Your Email or Phone or Facebook" name="email">
+              <button class="ctas-button">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-6 sidedevices">
+          <div class="browseriphone">
+            <div class="iphone">
+              <div class="mask">
+                <img class="mask-img" src="img/mobileapp.svg">
+              </div>
+            </div>
+            <div class="browser">
+              <div class="mask">
+                <img class="mask-img" src="img/webapp.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="feature3">
+      <div class="container-lrg flex">
+        <div class="col-4">
+          <b class="emoji">
+            🌎
+          </b>
+          <h3 class="subheading">
+            Global Reach
+          </h3>
+          <p class="paragraph">
+            Buy and Sell. Globally.
+          </p>
+        </div>
+        <div class="col-4">
+          <b class="emoji">
+            💯
+          </b>
+          <h3 class="subheading">
+            Quality Guaranteed
+          </h3>
+          <p class="paragraph">
+            Rigorously chosen, highest quality sellers and buyers.
+          </p>
+        </div>
+        <div class="col-4">
+          <b class="emoji">
+            🏭
+          </b>
+          <h3 class="subheading">
+            Huge Catalog
+          </h3>
+          <p class="paragraph">
+            Wide range of companies across industries.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="feature4">
+      <div class="container-lrg flex">
+        <div class="col-4">
+          <b class="emoji">
+            📈
+          </b>
+          <h3 class="subheading">
+            Grows with you
+          </h3>
+          <p class="paragraph">
+            Accessible to everyone - Small and Big.
+          </p>
+        </div>
+        <div class="col-4">
+          <b class="emoji">
+            🛥
+          </b>
+          <h3 class="subheading">
+            Hassle Free
+          </h3>
+          <p class="paragraph">
+            Shipping, Documents, Taxes - we take care of everything.
+          </p>
+        </div>
+        <div class="col-4">
+          <b class="emoji">
+            🤝
+          </b>
+          <h3 class="subheading">
+            Built on Trust
+          </h3>
+          <p class="paragraph">
+            Businesses relationships, not only transactions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container-sml text-center">
+        <div class="col-12">
+          <h5 class="heading">
+            Best suppliers and buyers for your business.
+          </h5>
+          <div class="ctas">
+            <div class="alert alert-success alert-dismissable fade in" style="display: none" id="success-alert2">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Thanks!</strong> You have been added to WhatsBiz!
+            </div>
+
+            <div class="alert alert-danger alert-dismissable fade in" style="display: none" id="fail-alert2">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Error!</strong> Please enter a valid email, or phone number or facebook id.
+            </div>
+
+
+            <form id="signupform2" method="post" action="https://api.formbucket.com/f/buk_sA0FNKFklKsP17eR0Cf4BrdK">
+              <input class="ctas-input" id="email2" type="text" placeholder="Your Email or Phone or Facebook" name="email">
+              <button class="ctas-button">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="container-lrg footer-nav">
+        <div class="col-12 spread">
+          <div>
+            <a class="nav-link" href="mailto:you@whatz.co?Subject=WhatzCO%20Inquiry">
+              you@whatz.co
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
